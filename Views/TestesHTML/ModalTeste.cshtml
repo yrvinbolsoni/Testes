@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "ModalTeste";
+}
+
+<h2>Modal Teste</h2>
+
+<p>Teste para mostar o modal com o formulario . </p>
+<p>Neste exemplo mostramos uma formulario </p>
+
+<a href="" class="btn btn-primary" data-toggle="modal" data-target="#AdicionarAnexo">Mostrar modal</a>
+
+<div class="modal fade" id="AdicionarAnexo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("AdicionarNota", "Desktop", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+
+                        @Html.Label("Adicionar Anexo", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <input type="hidden" id="DeskId" name="DeskId" value="3" />
+
+                        <input type="file" name="postedFile" id="postedFile" />
+
+                    </div>
+                    <br />
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="submit" value="Adicionar" class="btn btn-success" />
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </div>
+</div>

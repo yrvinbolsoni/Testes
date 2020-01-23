@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "ColunaComparativa";
+}
+
+<h2>ColunaComparativa</h2>
+
+@*//< !--adicionando a referência da biblioteca, das funções que precisamos para carregá - la-- >*@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+        //carregando o pacote primordial (em inglês, core) da versão mais recente do google charts
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+        //criando a função que contém a tabela de dados e  desenha o nosso gráfico
+        function dezenharGrafico() {
+
+            var tabelaColuna = google.visualization.arrayToDataTable(
+                [
+                    ['Mês', 'Entrada', 'Saída'],
+                    ['jan', 2500, 1000],
+                    ['fev', 1000, 500],
+                    ['mar', 3000, 1300],
+                    ['abr', 1500, 1700],
+                    ['mai', 5000, 2250],
+                    ['jun', 3567, 3000],
+                    ['jul', 3452, 1468],
+                    ['ago', 1833, 5250],
+                    ['set', 1800, 1000],
+                    ['out', 1800, 1000],
+                    ['nov', 3569, 1500],
+                    ['dez', 3000, 1740]
+                ]);
+
+            var opcoes = {
+                title: "Entrada e sáida da conta",
+                width: 1000,
+                height: 400,
+                vAxis: {
+                    format: 'currency',  // formato da moeda REAL
+                    title: 'Valores',
+                    gridlines: { color: 'transparent' }
+                },
+                hAxis: { title: "Mês" } // titulo da horizontal
+
+            }
+
+            var grafico = new google.visualization.ColumnChart(document.getElementById('graficoColuna'));
+            grafico.draw(tabelaColuna, opcoes);
+            
+        }
+        //usando uma função de retorno (em inglês callback) que será executada para chamar a função do nosso gráfico
+    google.charts.setOnLoadCallback(dezenharGrafico);
+</script>
+
+<!--adicionando a div para o gráfico ser exibido-->
+<div id="graficoColuna"></div>

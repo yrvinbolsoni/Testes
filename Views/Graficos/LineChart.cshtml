@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "LineChart";
+}
+
+<h2>LineChart</h2>
+
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+
+
+        google.charts.load('current', {
+            'packages': ['corechart'],
+            'language': "pt"
+        });
+
+        function desenharPizza (){
+           
+            // grafico linha 
+          var  tabela = new google.visualization.DataTable();
+            tabela.addColumn('string','mês');
+            tabela.addColumn('number','gastos');
+            tabela.addRows([
+                ['jan',800],
+                ['fev',400],
+                ['mar',1100],
+                ['abr',400],
+                ['mai',500],
+                ['jun',750],
+                ['jul',1500],
+                ['ago',650],
+                ['set',850],
+                ['out',400],
+                ['nov',1000],
+                ['dez',720]
+            ]);
+
+            var opcoes = {
+                title: 'Gastor por mês',
+                width: 1000,
+                height: 400,
+                vAxis: { // v de vertical e Axis de eixo ou seja na vertical sera usado o tipo de moeada , nao esquece de modificar no coreChart o tipo de dados Para pt 
+                    format: 'currency',
+                    gridlines: { // linas do fundo 
+                        count: 5,
+                        color: 'transparent'
+                    }
+                }, 
+                curveType: 'function',
+                legend:'none'
+            };
+
+            var grafico = new google.visualization.LineChart(document.getElementById('graficoLinha'));
+            grafico.draw(tabela, opcoes);
+        }
+
+    google.charts.setOnLoadCallback(desenharPizza);
+
+    </script>
+</head>
+    <div id="graficoPizza"></div>
+    <div id="graficoLinha"></div>

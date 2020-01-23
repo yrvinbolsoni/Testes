@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "BarChart";
+}
+
+<h2>BarChart</h2>
+
+
+
+
+@*//< !--adicionando a referência da biblioteca, das funções que precisamos para carregá - la-- >*@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+        //carregando o pacote primordial (em inglês, core) da versão mais recente do google charts
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+        //criando a função que contém a tabela de dados e  desenha o nosso gráfico
+        function dezenharGrafico() {
+
+
+            var tabela = new google.visualization.DataTable();
+            tabela.addColumn('string', 'categorias');
+            tabela.addColumn('number', 'valores');
+            tabela.addColumn({ type: 'string', role: 'annotation' }); // cria uma anotação para mostrar o numero em cima da coluna
+            tabela.addColumn({ type: 'string', role: 'style' });
+            tabela.addRows([
+                ['Educação', 2000, 'R$2.000,00', 'blue'],// repiclando valor para ser apresantando no grafico
+                ['Transporte', 500, 'R$500,00', 'grey'],
+                ['Lazer', 230, 'R$230,00', 'grey'],
+                ['Saúde', 50, 'R$50,00', 'grey'],
+                ['Cartão de crédito', 900, 'R$900,00', '#8904B1'],
+                ['Alimentação', 260, 'R$260,00', 'grey']
+            ]);
+            // ordenando tabela pelo indice 1
+            tabela.sort([{ column: 1, desc: true }]);
+            //opcoes que customizam o gráfico
+            var opcoes = {
+                title: 'Tipos de gastos',
+                width: 1000,
+                height: 400,
+                vAxis: { gridlines: { count: 0 },   }, // retira o valor da coluna a direita
+                hAxis: {
+                    gridlines: { color: 'transparent' },
+                    format: 'currency',
+                    textPosition:'none',
+                }, 
+                legend: 'none' , /// retira o valor da legenda
+                 annotations: { alwaysOutside: true , color:'red'}
+
+            };
+
+            var grafico = new google.visualization.BarChart(document.getElementById('BarChart'));
+            grafico.draw(tabela, opcoes);
+
+        }
+        //usando uma função de retorno (em inglês callback) que será executada para chamar a função do nosso gráfico
+    google.charts.setOnLoadCallback(dezenharGrafico);
+</script>
+
+<!--adicionando a div para o gráfico ser exibido-->
+<div id="BarChart"></div>

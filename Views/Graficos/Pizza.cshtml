@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "Pizza";
+}
+
+<h2>Pizza</h2>
+
+<head>
+    @*//< !--adicionando a referência da biblioteca, das funções que precisamos para carregá - la-- >*@
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script>
+        //carregando o pacote primordial (em inglês, core) da versão mais recente do google charts
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+        //criando a função que contém a tabela de dados e  desenha o nosso gráfico
+        function desenharPizza() {
+
+            //tabela com colunas, linhas e dados
+            var tabela = new google.visualization.DataTable();
+            tabela.addColumn('string', 'categorias');
+            tabela.addColumn('number', 'valores');
+            tabela.addRows([
+
+                ['Educação', 2000],
+                ['Transporte', 500],
+                ['Lazer', 230],
+                ['Saúde', 50],
+                ['Cartão de crédito', 900],
+                ['Alimentação', 260]
+            ]);
+
+            var myColors = {
+                'Educação': '#8B008B',
+                'Transporte': 'green',
+                'Lazer': 'yellow'
+            };
+
+            var slicesColor = {};
+
+            for (var i = 0; i < tabela.getNumberOfRows(); i++) {
+                // I assume the label is in the first column of each row here
+                // this is based on string matching, but you can define any criteria you want
+                slicesColor[i] = {
+                    offset: (i == 0 || tabela.getValue(i, 0) == 'Transporte' ? "0.4" : "0.0"),
+                    color: myColors[tabela.getValue(i, 0)]
+                };
+            }
+            console.log(slicesColor);
+
+            
+
+            
+       
+            var opcoes = {
+                'title': 'Tipo de Gastos',
+                'height': 500,
+                'width': 1000,
+                'is3D': true,
+                legend: { position: 'labeled', labeledValueText: 'none'},
+                tooltip: {
+                    text: 'value'
+                },
+                  // Como vai mostrar a legenda em Top ,Bottom , left , right ou labeled que vai fazer uma linha indicando no grafico
+                pieSliceText: 'value', // * mostrar o valor  ou texto = (label) que vai mostrar na fatia da pizza
+                slices: slicesColor // define diretamente as cores dos arrays quando nao colocar cores ele atribui a cor automatica co google , a propriedade OFFSET define o destaque do pedaço
+             
+                //  slices: {
+                //    0: {},
+                //    1: { color: 'gray' },
+                //    2: { color: '#a6a6a6' },
+                //    3: { color: 'gray' },
+                //    4: { offset: 0.4 },
+                //    5: { color: 'gray' },
+
+                //}
+                // 'colors':['gray', 'red' , 'yellow' , 'blue','pink' ,'purple'] // segue o padrao de array do tabela addRow ou seja [0,1,2,3,4]
+            };
+
+
+
+            // instanciando um objeto do tipo gráfico de pizza ou PieChart (gráfico de torta) passando a div do html
+            var grafico = new google.visualization.PieChart(document.getElementById('graficoPizza'));
+            //passando a tabela para a função desenhar, draw que desenha o gráfico
+            grafico.draw(tabela, opcoes);
+        }
+        //usando uma função de retorno (em inglês callback) que será executada para chamar a função do nosso gráfico
+        google.charts.setOnLoadCallback(desenharPizza);
+
+
+    </script>
+</head>
+
+<!--adicionando a div para o gráfico ser exibido-->
+<div id="graficoPizza"></div>

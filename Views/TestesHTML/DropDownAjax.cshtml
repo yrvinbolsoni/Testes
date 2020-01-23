@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Drop Down Ajax";
+}
+
+<h2>Drop Down Ajax</h2>
+
+<p>
+    O valor do primeiro DropDown vai atualiza o segundo DropDown no caso esta trazendo apenas um valor mas tambem pode trazer uma lista.
+    A requisação é fetita pelo componente <b>AJAX</b> passando o valor ID para o metodo GetDartament , no metodo pode ser feito a consulta do banco ou em memoria .
+</p>
+
+<p>
+    O primeiro dropdown tambem é prenchido pela uma lista em memoria , mais tambem pode ser facilmente alterado para vir direto do banco de dados , os dados são passados
+    pela <b>Viewbag</b>
+</p>
+<br />
+<script>
+
+    function ValorDrop(valor) {  /// pesquisa drop ajax
+        $.ajax({
+            type: "GET",
+            url: "/TestesHTML/getDepartment?p=" + valor,
+            data: "{}",
+            success: function (data) {
+                //var row = '<option value="-1">Todas os Departamentos</option>';
+                var row;
+                for (var i = 0; i < data.length; i++) {
+                    row += '<option value="' + data[i].DepartmentName + '">' + data[i].DepartmentName + '</option>';
+                }
+                $("#departmentsDropdown").html(row);
+            }
+        });
+    }
+</script>
+
+<table>
+    <th style="padding-right: 10px;"> @Html.DropDownList("PassandoValor", (IEnumerable<SelectListItem>)ViewBag.emp, new { @class = "form-control", @id = "emp", @onchange = "ValorDrop(this.value)" })  </th>
+
+    <th style="padding-right: 10px;">
+        <select class="form-control" id="departmentsDropdown" name="departmentsDropdown">
+            <option value="-1">Todas os Departamentos</option>
+        </select>
+    </th>
+</table>
+<hr />
+<h2>Chosen</h2>
+<p> Que faz uma busca dentro do dropdown entre outras coisas</p>
+<li>@Html.ActionLink("Chosen ", "Index", "Chosen")</li>
+
+
+

@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "BarJsonChart";
+}
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+@*//< !--adicionando a referência da biblioteca, das funções que precisamos para carregá - la-- >*@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+    //carregando o pacote primordial (em inglês, core) da versão mais recente do google charts
+    google.charts.load('current', { 'packages': ['corechart'] });
+
+    //criando a função que contém a tabela de dados e  desenha o nosso gráfico
+    function dezenharGrafico() {
+
+        //grafico de barras com arquivo json
+        var dadosJson = $.ajax({
+            url: 'https://gist.githubusercontent.com/neforodrigo/aabc275a6a944fc5337f6774803ed94b/raw/8a8a1b61ef174ec0656cf3ea4bf5a8b1d2cb5f22/dados.json',
+            dataType: 'json',
+            async: false
+        }).responseText;
+
+        //opcoes que customizam o gráfico
+        var opcoes = {
+            title: 'Tipos de gastos',
+            width: 1000,
+            height: 400,
+            vAxis: { gridlines: { count: 0 }, }, // retira o valor da coluna a direita
+            hAxis: {
+                gridlines: { color: 'transparent' },
+                format: 'currency',
+                textPosition: 'none',
+            },
+            legend: 'none', /// retira o valor da legenda
+            annotations: { alwaysOutside: true, color: 'red' }
+
+        };
+
+        var tabela = new google.visualization.DataTable(dadosJson);
+
+        var grafico = new google.visualization.BarChart(document.getElementById('graficoBarrasJson'));
+
+        grafico.draw(tabela, opcoes);
+
+    }
+
+    //usando uma função de retorno (em inglês callback) que será executada para chamar a função do nosso gráfico
+    google.charts.setOnLoadCallback(dezenharGrafico);
+</script>
+
+<!--adicionando a div para o gráfico ser exibido-->
+<div id="graficoBarrasJson"></div>

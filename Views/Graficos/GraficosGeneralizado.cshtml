@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "GraficosGeneralizado";
+}
+
+<h2>GraficosGeneralizado</h2>
+
+
+<h2>LineChart</h2>
+
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="~/Content/js/Graficos.js"></script>
+    <script>
+
+        google.charts.load('current', {
+            'packages': ['corechart'],
+            'language': 'pt'
+        })
+
+
+        google.charts.setOnLoadCallback(desenharGraficos);
+
+    </script>
+</head>
+
+<div id="graficoPizza"></div>
+<div id="graficoLinha"></div>
+<div id="graficoColuna"></div>
+<div id="graficoColunaSurpresa"></div>
+<div id="graficoBar"></div>
+
+
+

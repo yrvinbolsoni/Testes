@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "ColunaClicavel";
+}
+
+<h2>ColunaClicavel</h2>
+
+
+<head>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type='text/javascript'>
+        //importando o pacote table
+        google.charts.load('current', { 'packages': ['corechart'] });
+
+        //metodo que será chamado apos
+        google.setOnLoadCallback(drawTable);
+
+        function drawTable() {
+            //instanciando array do formado de tabela
+            var data = new google.visualization.DataTable();
+            //adicionando colunas, tipo e nome
+            data.addColumn('string', 'Aluno');
+            data.addColumn('number', 'Atividade');
+            //adicionando linhas
+            data.addRows([
+                ['Work', 11],
+                ['Eat', 2],
+                ['Commute', 2],
+                ['Watch TV', 2],
+                ['Sleep', 7]
+            ]);
+            //instanciando e desenhando tabela
+            var table = new google.visualization.ColumnChart(document.getElementById('table_div'));
+            //adicionando um listner que ouvirá o evento select para o objeto table
+            google.visualization.events.addListener(table, "select", function (e) {
+                //pega oa array de itens selecionados
+                var selection = table.getSelection();
+                //varre o array de para montar a string que será exibida
+                var tam = selection.length;
+                var str = "";
+                for (var i = 0; i < tam; i++) {
+                    //data.getFormattedValue(linha,coluna), para podermos obter o valor da célula
+                    str += "Atividade: " + data.getFormattedValue(selection[i].row, 0) + "; ";
+
+                }
+
+                alert(str);
+            });
+
+
+            table.draw(data, { showRowNumber: true });
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id='table_div'></div>
+</body>

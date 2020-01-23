@@ -1,0 +1,59 @@
+﻿
+@{
+
+
+}
+<h2>Como fazer o chosen</h2>
+<p>Chosen é uma ferramenta em JS capaz de ultimizar os dropdonw list ele fazer muitas coisas legais .   </p>
+<p> Para mais informações <a href="https://harvesthq.github.io/chosen/" target="_blank">segue link </a></p>
+<p>Exemplo abaixo ↓  </p>
+<select class="country">
+    <option>Africa</option>
+    <option>brazil</option>
+    <option>estados unido</option>
+    <option>estados desunido</option>
+    <option>estados separado </option>
+    <option>canada</option>
+</select>
+
+<hr />
+<p>Baixe a api e cole dentro de Content</p>
+<img src="~/Content/chosen/explicacao/passo1.JPG" />
+
+<hr />
+<p>Adicione dentro de Buldle  </p>
+<img src="~/Content/chosen/explicacao/passo2.JPG" />
+
+<hr />
+<p>Adicone o javascript referenciando o DropDown</p>
+<img src="~/Content/chosen/explicacao/passo3.JPG" />
+
+
+<div class="row">
+    <div class="col-lg-4">
+    </div>
+
+    <div class="col-lg-4">
+    </div>
+
+    <div class="col-lg-4">
+    </div>
+
+
+
+</div>
+
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $(".country").chosen();
+        });
+
+        // caso o controle atualiza os dados
+        $('.country').trigger('chosen:updated');
+
+    </script>
+
+}

@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Teste de recebimentos de emails </h2>
+<hr />
+
+@*@Html.ActionLink((string)ViewBag.anexo.FileName, "MostarArquivo", new { Type = ViewBag.FileType, NameFile = ViewBag.FileName, arquivo = ViewBag.FileByte }, new { @class = "glyphicon glyphicon-pencil btn btn-warning btn-sm" }) |*@
+
+@foreach (var email in ViewBag.Email)
+{
+    <hr />
+    <p>@email.Assunto</p>
+    <p>@email.De</p>
+    <p>@email.Para</p>
+    <p>@email.Data</p>
+    <p>@email.ConteudoTexto</p>
+    @*<p>@email.ConteudoHtml</p>*@
+    <hr />
+}
+
+@*// mostra os dados do xml*@
+@*@foreach (var xml in ViewBag.dadosXml)
+{
+    <hr />
+    <p>@xml.User</p>
+    <p>@xml.NomeProcesso</p>
+    <p>@xml.data</p>
+    <p>@xml.hora</p>
+    <p>@xml.ip</p>
+    <p>@xml.erro</p>
+    <hr />
+}*@
+
+ 

@@ -1,0 +1,85 @@
+<?xml version="1.0" standalone="yes"?>
+<LogSce>
+  <log>
+    <Usuario>VMWEB\geisamg</Usuario>
+    <NomeRelatorio>CneeClient</NomeRelatorio>
+    <Data>13/02/2019</Data>
+    <Hora>12:03</Hora>
+    <IP>201.56.122.114</IP>
+    <Erro>
+      System.InvalidOperationException: Viewer control object is in a read only state
+    </Erro>
+  </log>
+  <log>
+    <Usuario>System</Usuario>
+    <NomeRelatorio>Dropdown</NomeRelatorio>
+    <Data>21/11/2019</Data>
+    <Hora>17:02</Hora>
+    <IP>1231.321.321.32.1 </IP>
+    <Erro>erro errado errindo</Erro>
+  </log>
+  <log>
+    <Usuario>System</Usuario>
+    <NomeRelatorio>Dropdown</NomeRelatorio>
+    <Data>22/11/2019</Data>
+    <Hora>20:47</Hora>
+    <IP>1231.321.321.32.1 </IP>
+    <Erro>erro errado errindo</Erro>
+  </log>
+  <log>
+    <Usuario>System</Usuario>
+    <NomeRelatorio>Droyrvinbpdown</NomeRelatorio>
+    <Data>27/11/2019</Data>
+    <Hora>10:24</Hora>
+    <IP>1231.321.321.32.1 </IP>
+    <Erro>erro errado errindo</Erro>
+  </log>
+  <log>
+    <Usuario>System</Usuario>
+    <NomeRelatorio>Droyrvinbpdown</NomeRelatorio>
+    <Data>27/11/2019</Data>
+    <Hora>10:27</Hora>
+    <IP>1231.321.321.32.1 </IP>
+    <Erro>erro errado errindo</Erro>
+  </log>
+  <log>
+    <Usuario>System</Usuario>
+    <NomeRelatorio>Droyrvinbpdown</NomeRelatorio>
+    <Data>27/11/2019</Data>
+    <Hora>10:54</Hora>
+    <IP>1231.321.321.32.1 </IP>
+    <Erro>erro errado errindo</Erro>
+  </log>
+  <log>
+    <Usuario>System</Usuario>
+    <NomeRelatorio>Droyrvinbpdown</NomeRelatorio>
+    <Data>27/11/2019</Data>
+    <Hora>10:55</Hora>
+    <IP>1231.321.321.32.1 </IP>
+    <Erro>erro errado errindo</Erro>
+  </log>
+  <log>
+    <Usuario>System</Usuario>
+    <NomeRelatorio>Droyrvinbpdown</NomeRelatorio>
+    <Data>27/11/2019</Data>
+    <Hora>10:57</Hora>
+    <IP>1231.321.321.32.1 </IP>
+    <Erro>erro errado errindo</Erro>
+  </log>
+  <log>
+    <Usuario>System</Usuario>
+    <NomeRelatorio>Droyrvinbpdown</NomeRelatorio>
+    <Data>27/11/2019</Data>
+    <Hora>10:58</Hora>
+    <IP>1231.321.321.32.1 </IP>
+    <Erro>erro errado errindo</Erro>
+  </log>
+  <log>
+    <Usuario>System</Usuario>
+    <NomeRelatorio>Droyrvinbpdown</NomeRelatorio>
+    <Data>27/11/2019</Data>
+    <Hora>11:07</Hora>
+    <IP>1231.321.321.32.1 </IP>
+    <Erro>erro errado errindo</Erro>
+  </log>
+</LogSce>

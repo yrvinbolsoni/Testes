@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<br />
+<div class="jumbotron">
+    <h3>APLICATIVO DE TESTES </h3>
+     <p>Coisas usadas no dia dia para facilitar o desenvolvimento de aplicativos !</p>
+     
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Upload de arquivos </h2>
+        <p>
+          Nesta seção voce pode encontrar um codigo simples de como inserir um arquivo no banco de dados . 
+            Convertando o mesmo pra binario e fazendo a letura do mesmo 
+        </p>
+        <p><a class="btn btn-primary" href="https://go.microsoft.com/fwlink/?LinkId=301865">Para saber mais </a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Carga no banco de dados </h2>
+        <p>Para facilitar o desenvolvimento agil esta sesão irar inserir dados no banco de dados confrme suas models </p>
+        <p><a class="btn btn-primary" href="https://go.microsoft.com/fwlink/?LinkId=301865">Para saber mais </a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>DropDown list </h2>
+        <p>Aquela tarefa que sempre leva um bom tempo de desenvolvimento nao terar mais probleas ao desenvolver dropdonw lists !</p>
+        @Html.ActionLink("Para saber mais" ,"DropDownAjax", "TestesHtml",null , new {@Class = "btn btn-primary" })
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Criar um serviço no windows </h2>
+        <p>
+            aqui tera uma expicação de como fazer um serviço no windows  ,temos um exemplo chamado GerenciadoEmail
+        </p>
+        @Html.ActionLink("Para saber mais", "ServicoWindows", "TestesHtml", null, new { @Class = "btn btn-primary" })
+    </div>
+
+    @*<div class="col-md-4">
+        <h2>  </h2>
+        <p>
+
+        </p>
+        @Html.ActionLink("Para saber mais", "DropDownAjax", "TestesHtml", null, new { @Class = "btn btn-primary" })
+    </div>
+
+    <div class="col-md-4">
+        <h2>  </h2>
+        <p>
+
+        </p>
+        @Html.ActionLink("Para saber mais", "DropDownAjax", "TestesHtml", null, new { @Class = "btn btn-primary" })
+    </div>*@
+
+</div>
